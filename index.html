@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Dein Körper spricht - Körperliche Signale im Human Design verstehen. Ein Impuls zur Selbsterkenntnis.">
+<meta name="theme-color" content="#8a5aa8">
+<title>Dein Körper spricht · InnerVision</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ===== Kopfbereich ===== -->
+  <header class="site-head">
+    <img src="logo.png" alt="InnerVision" class="logo" width="110" height="110">
+    <h1>Dein Körper spricht</h1>
+    <p class="sub">Körperliche Signale im Human Design · InnerVision</p>
+  </header>
+
+  <!-- ===== Schritt 1: Geburtsdaten ===== -->
+  <section class="card" id="stepChart">
+    <p class="step-nr">Schritt 1 von 2</p>
+    <h2 class="step-h">Deine Geburtsdaten</h2>
+    <p class="hint">Damit dir nur die Tore gezeigt werden, die in deinem eigenen Chart aktiv sind.</p>
+
+    <label for="name">Name</label>
+    <input id="name" type="text" autocomplete="name" placeholder="Dein Name">
+
+    <div class="row">
+      <div>
+        <label for="date">Geburtsdatum</label>
+        <input id="date" type="date" required>
+      </div>
+      <div>
+        <label for="time">Geburtszeit</label>
+        <input id="time" type="time" value="12:00" required>
+      </div>
+    </div>
+
+    <label for="place">Geburtsort</label>
+    <div class="autocomplete">
+      <input id="place" type="text" autocomplete="off" placeholder="z.B. Wien">
+      <div id="acList" class="ac-list hidden" role="listbox"></div>
+    </div>
+
+    <button type="button" class="btn-main" id="chartBtn">Weiter zu den Körpersignalen</button>
+    <p class="error" id="errChart" role="alert"></p>
+  </section>
+
+  <!-- ===== Schritt 2: Symptome wählen ===== -->
+  <section class="card hidden" id="stepSymptom">
+    <p class="step-nr">Schritt 2 von 2</p>
+    <h2 class="step-h">Was meldet sich bei dir?</h2>
+    <div class="chips" id="chartInfo" style="margin-bottom:10px"></div>
+    <p class="hint">Wähle aus, wo sich dein Körper bemerkbar macht. Mehrfachauswahl ist möglich.</p>
+
+    <label for="search">Suchen</label>
+    <input id="search" type="search" autocomplete="off" placeholder="z.B. Nacken, Schlaf, Verdauung">
+
+    <div id="bereichGrid" class="bereich-grid"></div>
+
+    <p class="gewaehlt" id="gewaehlt"></p>
+
+    <button type="button" class="btn-main" id="goBtn">Zeigen, was mein Körper sagt</button>
+    <button type="button" class="btn-back" id="backBtn">Zurück zu den Geburtsdaten</button>
+    <p class="error" id="errSym" role="alert"></p>
+  </section>
+
+  <!-- ===== Ladeanzeige ===== -->
+  <div class="loading hidden" id="loadBox">
+    <span class="spinner" aria-hidden="true"></span>
+    <span>Einen Moment …</span>
+  </div>
+
+  <!-- ===== Ergebnis, wird per JavaScript gefüllt ===== -->
+  <main id="report" class="report hidden"></main>
+
+  <footer class="site-foot">
+    <p class="tiny">Ortsdaten: <a href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (CC-BY 4.0)</p>
+  </footer>
+
+</div>
+
+<script src="astronomy.min.js"></script>
+<script src="hd-cities.js"></script>
+<script src="hd-engine.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
