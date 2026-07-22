@@ -438,6 +438,62 @@ details .body li{margin:5px 0}
   .bereich-grid,.btn-back,.step-nr{display:none !important}
 }
 
+/* ============================================================
+   Tor-Karten und farbige Inhaltsblöcke
+   ============================================================ */
+
+/* Kopfzeile einer Tor-Karte */
+.tor-karte>summary{
+  gap:12px;padding:14px 16px;
+}
+.tor-nr{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;flex:0 0 auto;border-radius:10px;
+  background:linear-gradient(135deg,var(--rose),var(--lila));
+  color:#fff;font-size:15px;font-weight:600;
+}
+.tor-titel{flex:1;font-size:15.5px;line-height:1.35}
+.tor-karte[open]{border-color:var(--lila-hell);box-shadow:0 4px 16px rgba(138,90,168,.08)}
+.tor-karte[open]>summary{background:#faf6fd}
+
+/* Marken über dem Inhalt */
+.tor-meta{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 12px}
+
+/* Farbige Inhaltsblöcke */
+.tor-block{
+  border-radius:var(--radius-sm);padding:13px 15px;margin:11px 0;
+  border-left:4px solid var(--line);background:#fbfafc;
+}
+.tor-block .bl{
+  display:block;font-size:11.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;
+}
+.tor-block p{margin:6px 0;font-size:14.5px}
+.tor-block ul{margin:6px 0 0;padding-left:19px}
+.tor-block li{margin:5px 0;font-size:14.5px}
+
+/* Signale, neutral */
+.tor-block.signale{border-left-color:var(--lila-hell);background:#f8f5fc}
+.tor-block.signale .bl{color:var(--lila)}
+
+/* Potenzial, grün */
+.tor-block.gut{border-left-color:var(--gruen);background:#f4faf6}
+.tor-block.gut .bl{color:#5a9070}
+
+/* Schatten, rosé */
+.tor-block.schatten{border-left-color:var(--rose);background:#fdf5f5}
+.tor-block.schatten .bl{color:#b56a6a}
+
+/* Reflexionsfrage, gold */
+.tor-block.frage{border-left-color:var(--gold);background:#fdf8f1}
+.tor-block.frage .bl{color:#b8863f}
+.tor-block.frage p{font-style:italic}
+
+@media print{
+  .tor-karte,.tor-block{break-inside:avoid;page-break-inside:avoid}
+  .tor-block{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
 </style>
 <script>
 window.__DATEN__ = {
@@ -10270,6 +10326,92 @@ window.__DATEN__ = {
    ]
   }
  }
+},
+"autoritaeten": {
+ "Sakral": {
+  "label": "Sakrale Autorität (Bauchstimme)",
+  "kurz": "Deine Bauchstimme entscheidet, nicht dein Kopf.",
+  "text": "Du darfst auf deine Bauchstimme hören. Sie ist viel weiser als dein Verstand. Du erkennst deine Bauchstimme am besten daran, dass deine Freude für etwas anspringt. Es muss ein klares Ja aus deinem Bauch kommen, die pure Freude sozusagen.",
+  "praxis": [
+   "Lass dir von jemandem Ja-Nein-Fragen stellen und antworte schnell, ohne nachzudenken.",
+   "Keine offenen Fragen wie was möchtest du essen, sondern möchtest du heute Spaghetti.",
+   "Wenn die Antwort nö, eher nicht lautet, einfach die nächste Frage stellen.",
+   "Auch an deiner Mimik und Gestik kannst du deine Bauchstimme erkennen, das braucht etwas Übung."
+  ],
+  "warnung": "Wenn du etwas nur aus Pflicht oder Schuldgefühl machst, stellt dein Motor keine Energie bereit. Dann fühlst du dich nach kurzer Zeit kraftlos."
+ },
+ "Emotional": {
+  "label": "Emotionale Autorität",
+  "kurz": "Warte, bis die Welle ausgelaufen ist. Dann kommt die Klarheit.",
+  "text": "Dein Emotionalzentrum funktioniert wie eine Welle. Die Emotionen gehen auf und ab, und irgendwann läuft die Welle aus. Genau dann findest du Klarheit darüber, was für dich richtig ist und was nicht.",
+  "praxis": [
+   "Triff keine Entscheidung aus einem emotionalen Hoch oder Tief heraus.",
+   "Schlaf mindestens zwei bis drei Tage darüber, damit sich Klarheit einstellen kann.",
+   "Wichtige oder lebensverändernde Entscheidungen niemals spontan treffen.",
+   "Frag dich: Wie fühlt es sich an, wenn ich mich so entscheide? Und wie, wenn ich mich anders entscheide?"
+  ],
+  "warnung": "Spontane Entscheidungen aus der Welle heraus führen meist zu Fehlentscheidungen."
+ },
+ "Milz": {
+  "label": "Milzautorität (Intuition)",
+  "kurz": "Deine Intuition spricht leise, schnell und nur einmal.",
+  "text": "Du darfst dich auf deine Intuition verlassen. Vertraue diesem leisen, schnellen und einmaligen Impuls. Deine Intuition kommt schnell, leise und nur für den jetzigen Moment. Mit einer Milzautorität kannst du keine Entscheidungen für die weite Zukunft treffen, sie betrifft immer das Jetzt.",
+  "praxis": [
+   "Du darfst ganz spontan aus deiner Milz heraus entscheiden, wenn es sich richtig anfühlt.",
+   "Sobald ein Gefühl von Unsicherheit oder Zweifel kommt, ist es nicht die richtige Entscheidung.",
+   "Übe dich darin, deine Intuition wahrzunehmen und ihr zu vertrauen.",
+   "Es braucht innere Ruhe, sonst überhörst du den leisen Impuls."
+  ],
+  "warnung": "Für Entscheidungen, die weit in die Zukunft reichen, ist deine Intuition nicht zuständig."
+ },
+ "Herz": {
+  "label": "Egoautorität (Willenskraft)",
+  "kurz": "Hör dir selbst beim Sprechen zu, dann weißt du, was stimmt.",
+  "text": "Es ist wesentlich für dich, genau zu lauschen und zu fühlen, was du sagst und wie du es sagst, um zu wissen, was deine Wahrheit ist. Nicht dein Verstand entscheidet, sondern das, was aus dir herausfließt.",
+  "praxis": [
+   "Sprich, ohne zu kontrollieren, was dabei herauskommt.",
+   "Gib dich dem hin, was aus deinem Mund fließt, ohne es zu zensieren.",
+   "So erkennst du, wofür du tatsächlich Willenskraft hast, sei es ein Job, ein Urlaub oder eine Beziehung.",
+   "Versprich nur das, wofür du wirklich brennst und Energie hast."
+  ],
+  "warnung": "Dein Verstand wird versuchen zu zensieren und zu manipulieren, motiviert durch seine Ängste."
+ },
+ "Selbstprojiziert": {
+  "label": "Selbstautorität",
+  "kurz": "Eine seltene Autorität. Du erkennst deine Wahrheit im eigenen Reden.",
+  "text": "Du darfst immer prüfen, ob deine Werte und das, was du sein willst, im Einklang sind. Passt die Entscheidung zu deinen Werten und deinen Visionen? Wie nimmst du dich selbst dabei wahr? Zum Beispiel: Passt diese Wohnung zu mir, so wie sie ist? Fühle ich mich wohl?",
+  "praxis": [
+   "Sprich mit anderen über eine bevorstehende Entscheidung, aber hol dir keine Ratschläge.",
+   "Es geht nur um den Austausch, der in dir Erkenntnisse hervorbringt.",
+   "Erzähl Freunden oder Familie davon und lass es einfach heraussprudeln.",
+   "Führe Selbstgespräche und hör dir selbst beim Reden zu."
+  ],
+  "warnung": "Ratschläge von außen führen dich weg von deiner eigenen Wahrheit."
+ },
+ "Mental": {
+  "label": "Mentale Autorität (Umgebung)",
+  "kurz": "Deine Klarheit findest du im Außen, nicht in dir.",
+  "text": "Diese Autorität können nur Projektoren haben, und davon nur etwa ein Prozent. Du findest deine Wahrheit nicht als Gefühl oder Wissen in dir, sondern du findest die Klarheit im Außen. Nimm die Dinge auf und verarbeite sie mental aus unterschiedlichen Perspektiven.",
+  "praxis": [
+   "Rede über deine Themen mit anderen Menschen, um dabei deine Entscheidung herauszufinden.",
+   "Wichtig ist, dass von außen keine Ratschläge kommen, sondern dass du selbst darauf kommst.",
+   "Nimm dir Zeit, entscheide bei wichtigen Dingen nicht spontan.",
+   "Vielleicht brauchst du ein paar Tage, vielleicht einen ganzen Mondzyklus. Fordere diese Zeit ein."
+  ],
+  "warnung": "Wenn du diesen Prozess korrekt durchläufst, bist du der weiseste von allen. Das darf deine Umgebung ruhig zu schätzen wissen."
+ },
+ "Lunar": {
+  "label": "Mondautorität",
+  "kurz": "Ein ganzer Mondzyklus, achtundzwanzig Tage, führt dich zur Sicherheit.",
+  "text": "Du gewinnst mit jedem Tag und mit jedem Tor, das der Mond durchschreitet, einen anderen Blick auf eine Entscheidung. Deshalb triffst du die besten Entscheidungen, wenn du sie dir aus den unterschiedlichen Energien und Blickwinkeln eines gesamten Mondzyklus anschaust.",
+  "praxis": [
+   "Jeden Tag bekommst du neue Einsichten, Aspekte und Puzzlestücke, bis du dir am Ende sicher bist.",
+   "Für die großen, wichtigen Entscheidungen darfst du dir diese Zeit schenken.",
+   "Es braucht Geduld und Vertrauen, dass sich die Klarheit zeigt.",
+   "Beobachte auch, wie es dir bei zunehmendem, vollem, abnehmendem und neuem Mond geht."
+  ],
+  "warnung": "Deine Energie schwankt mit dem Mond, mehrmals am Tag. Das ist normal und kein Fehler."
+ }
 }
 };
 </script>
@@ -10956,18 +11098,16 @@ function computeFull(date,time,tz,place,name){
 
   /* ---------- 1 Daten ---------- */
 
-  var DATA = { tore: null, zentren: null, typen: null, symptome: null };
+  var DATA = { tore: null, zentren: null, typen: null, symptome: null, autoritaeten: null };
   var CHART = null;            // das berechnete Chart
   var GEWAEHLT = [];           // ausgewählte Körperbereiche
 
   function ladeDaten() {
-    // Alle Texte sind fest in dieser Datei eingebaut, es wird nichts nachgeladen.
+    // Alle Texte sind fest in dieser Datei eingebaut.
     var d = window.__DATEN__;
     if (!d) return Promise.reject(new Error('Daten fehlen'));
-    DATA.tore = d.tore;
-    DATA.zentren = d.zentren;
-    DATA.typen = d.typen;
-    DATA.symptome = d.symptome;
+    DATA.tore = d.tore; DATA.zentren = d.zentren; DATA.typen = d.typen;
+    DATA.symptome = d.symptome; DATA.autoritaeten = d.autoritaeten;
     return Promise.resolve();
   }
 
@@ -11228,28 +11368,50 @@ function computeFull(date,time,tz,place,name){
     var body = '<p class="lead">Diese Tore sind in deinem Chart aktiv und im Human Design mit den ' +
       'gewählten Körperbereichen verknüpft. Die stärksten Verbindungen stehen oben.</p>';
 
-    tore.forEach(function (t) {
+    tore.forEach(function (t, i) {
       var d = t.daten || {};
       var inner = '';
 
-      // Die passenden Signale zeigen, aber sparsam
-      inner += '<p class="k">Verknüpfte Signale</p>' + liste(t.signale.slice(0, 5));
+      // Kopfzeile mit Zentrum und Bereichen als kleine Marken
+      inner += '<div class="tor-meta">' +
+        '<span class="chip def">' + esc(d.zentrum || '') + '</span>' +
+        t.bereiche.map(function (b) {
+          return '<span class="chip open">' + esc(b) + '</span>';
+        }).join('') +
+      '</div>';
 
-      if (d.potenzial) inner += '<p class="k">Das Potenzial dieses Tors</p><p>' + esc(d.potenzial) + '</p>';
-      if (d.schatten) inner += '<p class="k">Der Schatten</p><p>' + esc(d.schatten) + '</p>';
+      // Die Signale, die zu diesem Tor passen
+      inner += '<div class="tor-block signale">' +
+        '<span class="bl">Diese Signale gehören zu Tor ' + t.nr + '</span>' +
+        liste(t.signale.slice(0, 5)) +
+      '</div>';
+
+      if (d.potenzial) {
+        inner += '<div class="tor-block gut">' +
+          '<span class="bl">Das Potenzial</span>' +
+          '<p>' + esc(d.potenzial) + '</p></div>';
+      }
+      if (d.schatten) {
+        inner += '<div class="tor-block schatten">' +
+          '<span class="bl">Der Schatten</span>' +
+          '<p>' + esc(d.schatten) + '</p></div>';
+      }
       if (d.reflexion) {
-        inner += '<p class="k">Frag dich einmal ehrlich</p>' +
+        inner += '<div class="tor-block frage">' +
+          '<span class="bl">Frag dich einmal ehrlich</span>' +
           '<p>' + esc(d.reflexion) + '</p>' +
-          (d.reflexion_tor ? '<p>' + esc(d.reflexion_tor) + '</p>' : '');
+          (d.reflexion_tor ? '<p>' + esc(d.reflexion_tor) + '</p>' : '') +
+        '</div>';
       }
 
-      body += '<details><summary>Tor ' + t.nr + (d.thema ? ' · ' + esc(d.thema) : '') +
-        '<span class="tag">' + t.signale.length + ' Signale</span></summary>' +
-        '<div class="body">' +
-          '<p><b>Zentrum:</b> ' + esc(d.zentrum || '') + '</p>' +
-          '<p class="signal">Gewählte Bereiche: ' + esc(t.bereiche.join(', ')) + '</p>' +
-          inner +
-        '</div></details>';
+      // Der stärkste Treffer ist von Anfang an offen
+      body += '<details class="tor-karte"' + (i === 0 ? ' open' : '') + '>' +
+        '<summary>' +
+          '<span class="tor-nr">' + t.nr + '</span>' +
+          '<span class="tor-titel">' + esc(d.thema || ('Tor ' + t.nr)) + '</span>' +
+          '<span class="tag">' + t.signale.length + ' Signale</span>' +
+        '</summary>' +
+        '<div class="body">' + inner + '</div></details>';
     });
 
     return '<section class="sec"><h3>Deine Tore zu diesen Signalen</h3>' + body + '</section>';
@@ -11289,6 +11451,103 @@ function computeFull(date,time,tz,place,name){
     return '<section class="sec"><h3>Deine Zentren zu diesen Signalen</h3>' + body + '</section>';
   }
 
+  /* Alle neun Zentren im Überblick, unabhängig von den gewählten Signalen */
+  function renderAlleZentren() {
+    var reihe = ['Kopf','Ajna','Kehle','G','Herz','Milz','Sakral','Emotional','Wurzel'];
+
+    var chips = '';
+    CHART.centers_defined.forEach(function (k) {
+      var z = DATA.zentren[k];
+      chips += '<span class="chip def">' + esc(z ? z.label : k) + ' · definiert</span>';
+    });
+    CHART.centers_open.forEach(function (k) {
+      var z = DATA.zentren[k];
+      chips += '<span class="chip open">' + esc(z ? z.label : k) + ' · offen</span>';
+    });
+
+    var body = '<div class="chips">' + chips + '</div>' +
+      '<p class="lead" style="margin-top:14px">Definierte Zentren arbeiten bei dir stabil. ' +
+      'Offene Zentren nehmen die Energie deiner Umgebung auf und sind oft deine feinsten Anzeiger.</p>';
+
+    reihe.forEach(function (k) {
+      var z = DATA.zentren[k];
+      if (!z) return;
+      var def = CHART.centers_defined.indexOf(k) >= 0;
+      var inner = '';
+
+      if (z.koerper) inner += '<p><b>Im Körper:</b> ' + esc(z.koerper) + '</p>';
+      if (z.funktion) inner += '<p class="k">Funktion</p><p>' + esc(z.funktion.split('\n')[0]) + '</p>';
+
+      if (def) {
+        inner += '<div class="tor-block gut"><span class="bl">Bei dir definiert' +
+          (z.prozent_def ? ' (weltweit ' + esc(z.prozent_def) + ')' : '') + '</span>' +
+          '<p>' + esc(z.definiert.split('\n')[0]) + '</p></div>';
+      } else {
+        inner += '<div class="tor-block schatten"><span class="bl">Bei dir offen</span>' +
+          '<p>' + esc(z.offen.split('\n')[0]) + '</p></div>';
+      }
+
+      if (z.symptome) inner += '<p class="k">Mögliche Signale</p>' + liste(z.symptome);
+      if (z.staerkung) inner += '<div class="tor-block frage"><span class="bl">Was dich hier stärkt</span>' +
+        liste(z.staerkung) + '</div>';
+
+      body += '<details><summary>' + esc(z.label) +
+        '<span class="tag">' + (def ? 'definiert' : 'offen') + '</span></summary>' +
+        '<div class="body">' + inner + '</div></details>';
+    });
+
+    return '<section class="sec"><h3>Deine Zentren im Überblick</h3>' + body + '</section>';
+  }
+
+  /* Findet den passenden Autoritäts-Text.
+     Die Engine liefert Namen wie "Emotional (Solarplexus)". */
+  function findeAutoritaet(name) {
+    if (!DATA.autoritaeten || !name) return null;
+    var keys = Object.keys(DATA.autoritaeten);
+    for (var i = 0; i < keys.length; i++) {
+      if (name.indexOf(keys[i]) === 0) return DATA.autoritaeten[keys[i]];
+    }
+    for (var j = 0; j < keys.length; j++) {
+      if (name.indexOf(keys[j]) >= 0) return DATA.autoritaeten[keys[j]];
+    }
+    return null;
+  }
+
+  function renderAutoritaet() {
+    var a = findeAutoritaet(CHART.authority);
+    if (!a) return '';
+    return '<section class="sec">' +
+      '<h3>Deine Autorität · ' + esc(a.label) + '</h3>' +
+      '<p class="lead">Strategie und Autorität sind die zwei wichtigsten Punkte im Human Design. ' +
+      'Die Strategie sagt dir, wann du handelst. Die Autorität sagt dir, wie du entscheidest.</p>' +
+      '<div class="tor-block frage"><span class="bl">Kurz gesagt</span>' +
+        '<p>' + esc(a.kurz) + '</p></div>' +
+      '<p>' + esc(a.text) + '</p>' +
+      '<div class="tor-block gut"><span class="bl">So gehst du praktisch vor</span>' +
+        liste(a.praxis) + '</div>' +
+      (a.warnung ? '<div class="tor-block schatten"><span class="bl">Achte darauf</span>' +
+        '<p>' + esc(a.warnung) + '</p></div>' : '') +
+    '</section>';
+  }
+
+  /* Der Energietyp mit Strategie, Energie, Burnout-Muster und Akuthilfe */
+  function renderEnergietyp() {
+    var typ = DATA.typen[CHART.type];
+    if (!typ) return '';
+    return '<section class="sec">' +
+      '<h3>Dein Energietyp · ' + esc(CHART.type) + '</h3>' +
+      '<p class="lead">' + esc(typ.kurz) + '</p>' +
+      '<div class="tor-block gut"><span class="bl">Deine Strategie</span>' +
+        '<p>' + esc(typ.strategie) + '</p></div>' +
+      '<div class="tor-block signale"><span class="bl">Deine Energie</span>' +
+        '<p>' + esc(typ.energie) + '</p></div>' +
+      '<div class="tor-block schatten"><span class="bl">Wie du in Erschöpfung gerätst</span>' +
+        '<p>' + esc(typ.burnout) + '</p></div>' +
+      '<div class="tor-block frage"><span class="bl">Wenn es gerade zu viel ist</span>' +
+        liste(typ.akut) + '</div>' +
+    '</section>';
+  }
+
   function renderTyp() {
     var typ = DATA.typen[CHART.type];
     if (!typ) return '';
@@ -11318,7 +11577,9 @@ function computeFull(date,time,tz,place,name){
       '</section>' +
       renderTore(erg.tore) +
       renderZentren(erg.zentren) +
-      renderTyp() +
+      renderEnergietyp() +
+      renderAutoritaet() +
+      renderAlleZentren() +
       '<p class="disclaimer">Diese Analyse dient der Selbsterkenntnis und ersetzt keine medizinische ' +
       'Diagnose oder Behandlung. Bei anhaltenden oder starken Beschwerden wende dich bitte an eine Ärztin oder einen Arzt.<br>' +
       '© InnerVision · Kerstin Püringer</p>';
